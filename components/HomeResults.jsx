@@ -3,8 +3,8 @@ import { gql, useQuery } from "@apollo/client";
 import { useState } from "react";
 
 const GET_CHARATERS = gql`
-  query getCharacters($page: Int) {
-    characters(page: $page) {
+  query getCharacters($page: Int, $name: String) {
+    characters(page: $page, filter: {name: $name}) {
       info {
         pages
         next
